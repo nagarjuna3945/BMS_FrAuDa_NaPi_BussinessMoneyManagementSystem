@@ -1,0 +1,3 @@
+<div class="center-col panel-sticky" align="right" (click)="openBottomSheet(periodSummary)">
+  <p *ngIf="!loading"><span class="balance-text">balance:</span> ₹ {{(periodSummary | async).total | onlyInteger}},<span> {{(periodSummary | async).total | onlyDecimalPart}}</span></p>
+</div>

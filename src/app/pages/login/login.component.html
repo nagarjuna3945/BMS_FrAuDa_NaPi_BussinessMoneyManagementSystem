@@ -1,0 +1,34 @@
+<div class="Aligner">
+  <div class="Aligner-item column-small">
+    <form [formGroup]="loginForm">
+      <p class="my-class">Sign in MnMoney</p>
+      <mat-progress-bar *ngIf="loading" mode="buffer"></mat-progress-bar>
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Email address" type="email" formControlName="email">
+          <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
+            Please enter a valid email address
+          </mat-error>
+          <mat-error>
+            {{ getError('email') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="full-width">
+          <input matInput placeholder="Password"  [type]="hidePassword ? 'password' : 'text'" formControlName="password">
+          <mat-icon class="pointer" matSuffix (click)="hidePassword = !hidePassword">{{hidePassword ? 'visibility' : 'visibility_off'}}</mat-icon>
+          <mat-error>
+            {{ getError('password') }}
+          </mat-error>
+        </mat-form-field>
+        <mat-error>{{errorMessage}}</mat-error>
+      </div>
+      <button [disabled]="loading" class="full-width" type="button" mat-stroked-button (click)="tryLogin(loginForm.value)">Sign in</button>
+      <button style="margin-top: 10px;" class="full-width" type="button" mat-button routerLink="/forgot-password">I forgot my password</button>
+
+      <p style="margin-block-end: 0px;margin-block-start: 1em;">Don't have an account yet?</p>
+      <button class="full-width" type="button" mat-button routerLink="/register">Sign up</button>
+    </form>
+  </div>
+</div>

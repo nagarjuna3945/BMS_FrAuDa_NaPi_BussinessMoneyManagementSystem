@@ -1,0 +1,27 @@
+<div class="center-col panel-sticky">
+  <div class="Aligner">
+    <div style="position: absolute;left: 8px;">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>add</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="handleOpenOutcomeDialog()">
+          <mat-icon>remove</mat-icon>
+          <span>Outcome</span>
+        </button>
+        <button mat-menu-item (click)="handleOpenIncomeDialog()">
+          <mat-icon>add</mat-icon>
+          <span>Income</span>
+        </button>
+      </mat-menu>
+    </div>
+    <app-period ></app-period>
+    <div style="position: absolute;right: 8px;">
+      <button mat-icon-button (click)="redirectToReconciliation()" >
+        <mat-icon>compare_arrows</mat-icon>
+      </button>
+  </div>
+</div>
+
+
+
